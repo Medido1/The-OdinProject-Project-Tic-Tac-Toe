@@ -187,7 +187,7 @@ body {
   gap: 1rem;
   font-size: 4rem;
   height: 50vh;
-  width: 30vw;
+  width: 60%;
   border-radius: 1rem;
   background: linear-gradient(to top, var(--slate_300), var(--slate_500));
 }
