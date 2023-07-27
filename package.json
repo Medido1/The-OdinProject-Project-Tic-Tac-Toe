@@ -1,0 +1,19 @@
+{
+  "name": "the-odinproject-project-tic-tac-toe",
+  "version": "1.0.0",
+  "description": "This is a solution to the Tic Tac Toe project that is part of the Odin project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.45.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-import": "^2.27.5",
+    "prettier": "3.0.0"
+  }
+}

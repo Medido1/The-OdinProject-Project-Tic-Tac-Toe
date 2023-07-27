@@ -1,0 +1,255 @@
+:root {
+  /* ## colors */
+  --slate_400: #94a3b8;
+  --slate_300: #cbd5e1;
+  --slate_500: #64748b;
+  --blue_100: #dbeafe;
+  --green_100: #dcfce7;
+
+  /* ## size */
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: #020617;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* hide class */
+
+.board_container.hide,
+.multiplayer_form.hide,
+.game_over.hide,
+.game_type_form.hide {
+  display: none;
+}
+
+/* general styling */
+
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header,
+.main,
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header,
+.footer {
+  background-color: var(--slate_400);
+  padding: 1.25rem;
+}
+
+.footer {
+  flex-direction: column;
+}
+
+/* board styling */
+.board_container {
+  position: relative;
+  background-color: var(--slate_300);
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  border-radius: 0.5rem;
+  box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.cell {
+  cursor: pointer;
+  height: var(--cell-size);
+  width: var(--cell-size);
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.cell:nth-child(n + 7) {
+  border-bottom: none;
+}
+
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.cell.x,
+.cell.circle {
+  cursor: not-allowed;
+}
+
+/* x Mark */
+
+.cell.x::before,
+.cell.x::after {
+  background-color: black;
+}
+
+.cell.x::before,
+.cell.x::after,
+.board_container.x .cell:not(.x):not(.circle):hover::before,
+.board_container.x .cell:not(.x):not(.circle):hover::after {
+  content: "";
+  position: absolute;
+  height: var(--mark-size);
+  width: calc(var(--mark-size) * 0.2);
+}
+
+.cell.x::before,
+.board_container.x .cell:not(.x):not(.circle):hover::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after,
+.board_container.x .cell:not(.x):not(.circle):hover::after {
+  transform: rotate(-45deg);
+}
+
+.board_container.x .cell:not(.x):not(.circle)::before,
+.board_container.x .cell:not(.x):not(.circle)::after {
+  background-color: var(--blue_100);
+}
+
+/* circle Mark */
+
+.cell.circle::before {
+  background-color: black;
+}
+
+.board_container.circle .cell:not(.x):not(.circle):hover::before {
+  background-color: var(--blue_100);
+}
+
+.cell.circle::before,
+.cell.circle::after,
+.board_container.circle .cell:not(.x):not(.circle):hover::before,
+.board_container.circle .cell:not(.x):not(circle):hover::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cell.circle::before,
+.board_container.circle .cell:not(.x):not(.circle):hover::before {
+  height: calc(var(--mark-size) * 0.9);
+  width: calc(var(--mark-size) * 0.9);
+}
+
+.cell.circle::after,
+.board_container.circle .cell:not(.x):not(.circle):hover::after {
+  height: calc(var(--mark-size) * 0.75);
+  width: calc(var(--mark-size) * 0.75);
+  background-color: var(--slate_300);
+}
+
+/* game over panel */
+
+.game_over {
+  padding: 1.25rem;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 4rem;
+  height: 50vh;
+  width: 30vw;
+  border-radius: 1rem;
+  background: linear-gradient(to top, var(--slate_300), var(--slate_500));
+}
+
+.btn {
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 1rem 3rem;
+  background-color: var(--slate_300);
+  border: 1px solid black;
+  border-radius: 1rem;
+  transition: transform 200ms ease-in-out;
+}
+
+.btn:hover {
+  background-color: var(--green_100);
+  transform: translateY(10px);
+}
+
+/* multiplayer form */
+
+.multiplayer_form,
+.game_type_form {
+  background-color: var(--slate_400);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.75rem;
+}
+
+.multiplayer_form input {
+  cursor: pointer;
+  font-size: inherit;
+  height: 2rem;
+  border: 0;
+  border-bottom: 1px solid black;
+  outline: none;
+  background-color: transparent;
+  padding: 0.5rem;
+  width: 50%;
+  transition: border-bottom 200ms ease-in-out;
+}
+
+.multiplayer_form input:focus {
+  border-bottom: 3px solid black;
+}
+
+.multiplayer_form input:focus::placeholder {
+  opacity: 0.5;
+}
+
+/* game type form */
+
+.game_type_form {
+  align-items: flex-start;
+}
+
+.game_type_form .btn {
+  align-self: center;
+}

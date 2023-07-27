@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./img/game.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>TicTacToe</h1>
+    </header>
+
+    <main class="main">
+      <form class="game_type_form" data-game-type-form>
+        <div>
+          <input type="radio" name="gameType" id="AI" />
+          <label for="AI">Play Against AI</label>
+        </div>
+        <div>
+          <input type="radio" name="gameType" id="multiplayer" />
+          <label for="multiplayer">Play Against a friend</label>
+        </div>
+        <button class="btn">Next</button>
+      </form>
+      <form class="multiplayer_form hide" data-multiplayer-game-form>
+        <input
+          type="text"
+          name="player1"
+          id="player1"
+          aria-label="player1 name"
+          placeholder="Player1"
+          required
+          oninvalid="this.setCustomValidity('Enter a name!!')"
+          oninput="this.setCustomValidity('')"
+        />
+        <input
+          type="text"
+          name="player2"
+          id="player2"
+          aria-label="player2 name"
+          placeholder="Player2"
+          required
+          oninvalid="this.setCustomValidity('Enter a name!!')"
+          oninput="this.setCustomValidity('')"
+        />
+        <button class="btn" type="submit">Start Game</button>
+      </form>
+      <div class="board_container hide" data-board>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <div class="game_over hide" data-result-panel>
+        <p class="game_result"></p>
+        <button class="btn" data-restart-button>Restart Game</button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p class="author">
+        <a href="https://github.com/Medido1">Bousalah Nadir</a>.
+      </p>
+      <a href="https://www.flaticon.com/free-icons/tac" title="tac icons"
+        >Tac icons created by Ekros - Flaticon</a
+      >
+    </footer>
+  </body>
+</html>
