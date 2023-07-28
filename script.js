@@ -1,6 +1,6 @@
 const circleClass = "circle";
 const xClass = "x";
-let currentClass = xClass;
+let currentClass = xClass; let AIClass = circleClass;
 let currentGameType;
 const winningCombinations = [
   [0, 1, 2],
@@ -64,7 +64,7 @@ function endGame(turn, draw) {
       } else {
         gameResult.textContent = `${player2} wins!!`;
       }
-    } else if (turn === xClass) {
+    } else if (turn === currentClass) {
       gameResult.textContent = "You win!!";
     } else {
       gameResult.textContent = "You lost :(";
@@ -91,7 +91,7 @@ function setAIMark() {
   const remainingCells = getRemainingCells();
   if (remainingCells.length < 1) return;
   const index = getRandomIndex(remainingCells);
-  remainingCells[index].classList.add(circleClass);
+  remainingCells[index].classList.add(AIClass);
 }
 
 function checkGame(){
@@ -107,11 +107,11 @@ function checkGame(){
   }
   if (currentGameType === "AI"){
     setAIMark();
-    if (checkForWin(circleClass)) {
-      endGame(circleClass, false);
+    if (checkForWin(AIClass)) {
+      endGame(AIClass, false);
     }
     if (checkForDraw()) {
-      endGame(circleClass, true);
+      endGame(AIClass, true);
     }
   }
 }
@@ -168,6 +168,10 @@ function getGameType(e) {
   }
 }
 
+function updateAIClass(){
+  AIClass = currentClass === xClass ? circleClass : xClass;
+}
+
 
 restartBtn.addEventListener("click", restartGame);
 multiPlayeGameForm.addEventListener("submit", startGame);
@@ -175,12 +179,14 @@ gameTypeForm.addEventListener("submit", getGameType);
 xMarkButton.addEventListener("click", (e) => {
   if (currentClass !== xClass){
     currentClass = xClass;
+    updateAIClass();
     restartGame(e);
   }
 })
 oMarkButton.addEventListener("click", (e) => {
   if (currentClass !== circleClass){
     currentClass = circleClass;
+    updateAIClass();
     restartGame(e);
   }
 })
