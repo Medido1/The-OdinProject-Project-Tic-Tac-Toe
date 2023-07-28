@@ -97,6 +97,7 @@ function setAIMark() {
 function checkGame(){
   if (checkForWin(currentClass)){
     endGame(currentClass, false);
+    return;
   }
   if (checkForDraw()){
     endGame(currentClass, true);
