@@ -21,6 +21,8 @@ const multiPlayeGameForm = document.querySelector(
   "[data-multiplayer-game-form]",
 );
 const gameTypeForm = document.querySelector("[data-game-type-form]");
+const xMarkButton = document.querySelector("[data-x-mark]");
+const oMarkButton = document.querySelector("[data-o-mark]");
 
 function setHoverMark() {
   gameBoard.classList.remove(xClass, circleClass);
@@ -166,6 +168,19 @@ function getGameType(e) {
   }
 }
 
+
 restartBtn.addEventListener("click", restartGame);
 multiPlayeGameForm.addEventListener("submit", startGame);
 gameTypeForm.addEventListener("submit", getGameType);
+xMarkButton.addEventListener("click", (e) => {
+  if (currentClass !== xClass){
+    currentClass = xClass;
+    restartGame(e);
+  }
+})
+oMarkButton.addEventListener("click", (e) => {
+  if (currentClass !== circleClass){
+    currentClass = circleClass;
+    restartGame(e);
+  }
+})
