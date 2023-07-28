@@ -123,6 +123,10 @@ function setMark(e) {
 }
 
 function showBoard() {
+  if (currentGameType === "AI"){
+    const markChoicePanel = document.querySelector(".mark_choice");
+    markChoicePanel.classList.remove("hide");
+  }
   gameTypeForm.classList.add("hide");
   multiPlayeGameForm.classList.add("hide");
   gameBoard.classList.remove("hide");
