@@ -11,7 +11,7 @@ This is a solution to the Tic Tac Toe project that is part of <a href="https://w
 - [My process](#my-process)
   - [Built with](#built-with)
 - [Author](#author)
-[Acknowledgments](#acknowledgments)
+  [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -23,16 +23,19 @@ Users should be able to:
 
 ### Screenshot
 
-  ## Choosing a game type
-  ![](./img/gametype.png)
+## Choosing a game type
 
-  ## Gameboard
-  ![](./img/gameboard.png)
+![](./img/gametype.png)
 
-  ## Game Result
-  ![](./img/gameresult.png)
+## Gameboard
 
-  ### Links
+![](./img/gameboard.png)
+
+## Game Result
+
+![](./img/gameresult.png)
+
+### Links
 
 - Solution URL: [solution](https://github.com/Medido1/The-OdinProject-Project-Tic-Tac-Toe)
 - Live Site URL: [live site](https://medido1.github.io/The-OdinProject-Project-Tic-Tac-Toe/)
@@ -48,8 +51,9 @@ Users should be able to:
 - Vanilla javascript
 
 ## Author
+
 - GitHub - [@Medido1](https://github.com/Medido1)
 
 ## Acknowledgments
 
-  This project was made with some help from the youtube channel [@WebDevSimplified](https://www.youtube.com/@WebDevSimplified)
+This project was made with some help from the youtube channel [@WebDevSimplified](https://www.youtube.com/@WebDevSimplified)
