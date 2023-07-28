@@ -92,22 +92,18 @@ function setAIMark() {
   remainingCells[index].classList.add(circleClass);
 }
 
-function setMark(e) {
-  const cell = e.target;
-  if (cell.classList.contains(xClass) || cell.classList.contains(circleClass))
-    return;
-  cell.classList.add(currentClass);
-  if (checkForWin(currentClass)) {
+function checkGame(){
+  if (checkForWin(currentClass)){
     endGame(currentClass, false);
   }
-  if (checkForDraw()) {
+  if (checkForDraw()){
     endGame(currentClass, true);
   }
-  if (currentGameType === "multiplayer") {
+  if (currentGameType === "multiplayer"){
     swapTurns();
     setHoverMark();
   }
-  if (currentGameType === "AI") {
+  if (currentGameType === "AI"){
     setAIMark();
     if (checkForWin(circleClass)) {
       endGame(circleClass, false);
@@ -116,6 +112,14 @@ function setMark(e) {
       endGame(circleClass, true);
     }
   }
+}
+
+function setMark(e) {
+  const cell = e.target;
+  if (cell.classList.contains(xClass) || cell.classList.contains(circleClass))
+    return;
+  cell.classList.add(currentClass);
+  checkGame();
 }
 
 function showBoard() {
